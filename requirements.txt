@@ -1,0 +1,9 @@
+pandas
+numpy
+pyyaml
+pillow
+streamlit
+xarray
+h5netcdf
+# optional
+pygbif
