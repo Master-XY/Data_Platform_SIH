@@ -26,17 +26,21 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="SIH MVP Dashboard", layout="wide")
 
-BASE_DIR = os.path.dirname(__file__)
-data_path = os.path.join(BASE_DIR, "data", "samples.csv")
-df = pd.read_csv(data_path)
+BASE_DIR = os.getcwd()   # <-- instead of os.path.dirname(__file__)
 
+# Paths to data
+samples_path = os.path.join(BASE_DIR, "data", "samples.csv")
 asv_path = os.path.join(BASE_DIR, "data", "asv_table.tsv")
+env_path = os.path.join(BASE_DIR, "data", "env_data.nc")
+images_dir = os.path.join(BASE_DIR, "data", "images")
+
+# Read files
+df_samples = pd.read_csv(samples_path)
 df_asv = pd.read_csv(asv_path, sep='\t')
 
-env_path = os.path.join(BASE_DIR, "data", "env_data.nc")
-ds = xr.open_dataset(env_path)
+import xarray as xr
+ds_env = xr.open_dataset(env_path)
 
-images_dir = os.path.join(BASE_DIR, "data", "images")
 all_images = [os.path.join(images_dir, f) for f in os.listdir(images_dir) if f.endswith(".png")]
 
 
