@@ -17,7 +17,7 @@ import io
 import json
 import re
 from datetime import datetime
-
+import xarray as xr
 import pandas as pd
 import numpy as np
 import streamlit as st
@@ -29,6 +29,17 @@ st.set_page_config(page_title="SIH MVP Dashboard", layout="wide")
 BASE_DIR = os.path.dirname(__file__)
 data_path = os.path.join(BASE_DIR, "data", "samples.csv")
 df = pd.read_csv(data_path)
+
+asv_path = os.path.join(BASE_DIR, "data", "asv_table.tsv")
+df_asv = pd.read_csv(asv_path, sep='\t')
+
+env_path = os.path.join(BASE_DIR, "data", "env_data.nc")
+ds = xr.open_dataset(env_path)
+
+images_dir = os.path.join(BASE_DIR, "data", "images")
+all_images = [os.path.join(images_dir, f) for f in os.listdir(images_dir) if f.endswith(".png")]
+
+
 # -----------------------------
 # Config: adjust paths 
 # -----------------------------
