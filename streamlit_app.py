@@ -50,9 +50,9 @@ all_images = [os.path.join(images_dir, f) for f in os.listdir(images_dir) if f.e
 # -----------------------------
 UNIFIED_PATH = "data/processed/unified.parquet"
 SAMPLES_CLEANED = "data/processed/cleaned_samples.csv"
-ASV_PATH = "data/synthetic/asv_table.tsv"
-IMAGES_DIR = "data/synthetic/images"
-NC_PATH = "data/synthetic/env_data.nc"
+ASV_PATH = "data/asv_table.tsv"
+IMAGES_DIR = "data/images"
+NC_PATH = "data/env_data.nc"
 ETL_PHASE1 = "etl_phase1.py"
 ETL_PHASE2 = "etl_phase2_integration.py"
 
