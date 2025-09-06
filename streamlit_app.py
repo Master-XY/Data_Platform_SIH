@@ -23,6 +23,7 @@ import numpy as np
 import streamlit as st
 from PIL import Image
 import matplotlib.pyplot as plt
+import sys
 
 st.set_page_config(page_title="SIH MVP Dashboard", layout="wide")
 
@@ -82,7 +83,7 @@ def run_etl_from_app():
     try:
         with st.spinner("Running ETL Phase 1 (ingest & validate)..."):
             subprocess.run(
-                ["python", ETL_PHASE1,
+                [sys.executable, ETL_PHASE1,
                  "--input", "data/samples.csv",
                  "--asv", ASV_PATH,
                  "--images", IMAGES_DIR,
@@ -93,7 +94,7 @@ def run_etl_from_app():
             )
         with st.spinner("Running ETL Phase 2 (integration)..."):
             subprocess.run(
-                ["python", ETL_PHASE2,
+                [sys.executable, ETL_PHASE2,
                  "--samples", SAMPLES_CLEANED,
                  "--asv", ASV_PATH,
                  "--images", IMAGES_DIR,
