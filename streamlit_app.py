@@ -103,9 +103,24 @@ def top_n_asvs_from_row(row, asv_prefix="ASV", n=10):
     asv_cols = [c for c in row.index if re.match(rf"^{asv_prefix}", c, flags=re.IGNORECASE)]
     if not asv_cols:
         return pd.Series(dtype=float)
-    counts = row[asv_cols].astype(float).replace({np.nan: 0})
+    def top_n_asvs_from_row(row, asv_prefix="ASV", n=10):
+    # detect ASV columns
+      asv_cols = [c for c in row.index if c.upper().startswith(asv_prefix.upper())]
+    if not asv_cols:
+        return pd.Series(dtype=float)
+
+    # convert values safely to numbers
+    counts = pd.to_numeric(row[asv_cols], errors="coerce").fillna(0)
+
+    # filter out zero-only ASVs
+    counts = counts[counts > 0]
+
+    if counts.empty:
+        return pd.Series(dtype=float)
+
     top = counts.sort_values(ascending=False).head(n)
     return top
+
 
 # -----------------------------
 # UI: sidebar controls
