@@ -26,6 +26,9 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="SIH MVP Dashboard", layout="wide")
 
+BASE_DIR = os.path.dirname(__file__)
+data_path = os.path.join(BASE_DIR, "data", "my_file.csv")
+df = pd.read_csv(data_path)
 # -----------------------------
 # Config: adjust paths 
 # -----------------------------
