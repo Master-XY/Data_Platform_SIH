@@ -6,6 +6,7 @@ python etl_phase2_integration.py --samples data/processed/cleaned_samples.csv --
 """
 import argparse, os, json
 import pandas as pd
+import numpy as np
 from pathlib import Path
 from PIL import Image
 
