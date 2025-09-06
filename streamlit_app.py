@@ -27,15 +27,16 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="SIH MVP Dashboard", layout="wide")
 
 # -----------------------------
-# Config: adjust paths if needed
+# Config: adjust paths 
 # -----------------------------
 UNIFIED_PATH = "data/processed/unified.parquet"
 SAMPLES_CLEANED = "data/processed/cleaned_samples.csv"
-ASV_PATH = "data/asv_table.tsv"
-IMAGES_DIR = "data/images"
-NC_PATH = "data/env_data.nc"
+ASV_PATH = "data/synthetic/asv_table.tsv"
+IMAGES_DIR = "data/synthetic/images"
+NC_PATH = "data/synthetic/env_data.nc"
 ETL_PHASE1 = "etl_phase1.py"
 ETL_PHASE2 = "etl_phase2_integration.py"
+
 
 # -----------------------------
 # Utilities
@@ -103,11 +104,7 @@ def top_n_asvs_from_row(row, asv_prefix="ASV", n=10):
     asv_cols = [c for c in row.index if re.match(rf"^{asv_prefix}", c, flags=re.IGNORECASE)]
     if not asv_cols:
         return pd.Series(dtype=float)
-    def top_n_asvs_from_row(row, asv_prefix="ASV", n=10):
-    # detect ASV columns
-      asv_cols = [c for c in row.index if c.upper().startswith(asv_prefix.upper())]
-    if not asv_cols:
-        return pd.Series(dtype=float)
+   
 
     # convert values safely to numbers
     counts = pd.to_numeric(row[asv_cols], errors="coerce").fillna(0)
