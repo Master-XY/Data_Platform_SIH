@@ -7,5 +7,4 @@ streamlit
 xarray
 h5netcdf
 matplotlib
-# optional
 pygbif
