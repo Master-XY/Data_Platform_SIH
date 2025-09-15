@@ -56,7 +56,32 @@ In the Streamlit Cloud dashboard:
 
 ## 🔧 Environment Configuration
 
-The app will automatically install dependencies from `requirements.txt`. No additional configuration needed!
+The app will automatically install dependencies from `requirements.txt`. 
+
+### ⚠️ Version Compatibility Fix
+
+If you encounter version conflicts during deployment, you have three options:
+
+1. **Use the main requirements.txt** (recommended):
+   ```txt
+   streamlit>=1.28.0
+   pandas>=1.5.0
+   numpy>=1.24.0
+   plotly>=5.15.0
+   matplotlib>=3.7.0
+   seaborn>=0.12.0
+   xarray>=2023.1.0
+   h5netcdf>=1.1.0
+   openpyxl>=3.1.0
+   pillow>=9.5.0
+   pyyaml>=6.0
+   ```
+
+2. **Use minimal requirements** (if main fails):
+   - Rename `requirements_minimal.txt` to `requirements.txt`
+
+3. **Use conservative requirements** (for maximum compatibility):
+   - Rename `requirements_conservative.txt` to `requirements.txt`
 
 ## 📊 Features Available After Deployment
 

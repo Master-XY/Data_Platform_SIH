@@ -1,0 +1,15 @@
+# Minimal requirements for Streamlit Cloud deployment
+# This version uses more flexible constraints to avoid version conflicts
+
+streamlit
+pandas
+numpy
+plotly
+matplotlib
+seaborn
+xarray
+h5netcdf
+openpyxl
+pillow
+pyyaml
+pygbif

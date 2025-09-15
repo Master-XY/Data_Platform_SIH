@@ -1,24 +1,14 @@
-# Core Streamlit and data processing
+# Streamlit Cloud Compatible Requirements
+# Optimized for deployment without version conflicts
+
 streamlit>=1.28.0
 pandas>=1.5.0
 numpy>=1.24.0
-
-# Visualization libraries
 plotly>=5.15.0
 matplotlib>=3.7.0
 seaborn>=0.12.0
-
-# Data handling
 xarray>=2023.1.0
 h5netcdf>=1.1.0
 openpyxl>=3.1.0
-
-# Image processing
 pillow>=9.5.0
-
-# Utilities
 pyyaml>=6.0
-pygbif>=3.7.0
-
-# Optional: for enhanced performance
-numba>=0.57.0
